@@ -1,0 +1,22 @@
+body {
+    background-color: LightBlue; 
+    color: Omaroon; 
+    font-family: Arial; 
+    margin: 0px;
+}
+
+main {
+    background-color: lightslategray; 
+}
+
+footer {
+    background-color: lightsalmon; 
+}
+
+footer {
+    background-color: lightseagreen; 
+}
+
+a {
+    text-decoration-line: none;
+}
