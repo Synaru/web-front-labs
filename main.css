@@ -1,22 +1,59 @@
 body {
-    background-color: LightBlue; 
-    color: Omaroon; 
-    font-family: Arial; 
+    background-color: LightBlue;
+    color: Omaroon;
+    font-family: Arial;
     margin: 0px;
 }
 
 main {
-    background-color: lightslategray; 
+    background-color: lightslategray;
+    margin-bottom: 36px;
 }
 
 footer {
-    background-color: lightsalmon; 
-}
-
-footer {
-    background-color: lightseagreen; 
+    background-color: lightsalmon;
+    width: 100%;
+    position: fixed;
+    margin-top: auto;
+    bottom: 0;
 }
 
 a {
     text-decoration-line: none;
+    transition: 1s 2s;
 }
+
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: green;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+a:active {
+    color: black;
+    opacity: 0.3;
+}
+
+div.menu {
+    border: 3px solid pink;
+    background-color: beige;
+    border-radius: 5px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.menu:hover {
+    border: 3px solid rgb(253, 88, 116);
+    background-color: pink;
+    
+}
+

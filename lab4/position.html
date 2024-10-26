@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Position</title>
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        div {
+            width: 300px;
+            height: 70px;
+            background-color: azure;
+            border: 1px dotted black;
+            margin: 15px;
+
+            line-height: 70px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .position-relative {
+            position: relative;
+            left: 150px;
+            top: -130px;
+            z-index: 0;
+        }
+        .position-relative:hover {
+
+            z-index: 3;
+        }
+
+        .position-absolute {
+            position: absolute;
+            background-color: lightcoral;
+
+        }
+        .position-absolute:hover {
+            position: absolute;
+            background-color: rgb(228, 34, 34);
+            box-shadow: 10px 10px 10px black;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        Position
+    </header>
+    <main style="position: relative; z-index: 0;">
+        <div style="position: relative;">static</div>
+        <div style="position: relative;">static</div>
+        <div class="position-relative">relative</div>
+        <div>static</div>
+        <div>static</div>
+        <div class="position-absolute">absolute</div>
+        <div >static</div>
+        <div>static</div>
+        <div>static</div>
+        <div>static</div>
+        <div>static</div>
+
+    </main>
+    <footer>
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>
