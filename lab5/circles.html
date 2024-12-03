@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Cart</title>
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+        
+        .circle {
+            border-radius: 1000px;
+            height: 48px;
+            width: 48px;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            vertical-align: middle;
+            position: absolute;
+        }
+        .circle:hover {
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <script>        
+        function hideCircle(element) {            
+            element.classList.add("hidden")
+        }
+
+        function resetCircles() {  
+            let circles = document.getElementsByClassName("circle")  
+            for(let circle of circles){
+                circle.classList.remove("hidden")
+            }    
+        }
+
+    </script>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 5. Cart
+        <hr>
+        <script>
+            
+        </script>
+    </header>
+    <main>
+        <button onclick="resetCircles()">Reset circles</button>
+        <div class="circle" style="background-color: blueviolet;" onclick="hideCircle(this)">1</div>
+        <div class="circle" style="background-color: red; transform: translate(100px, 150px);" onclick="hideCircle(this)">2</div>
+        <div class="circle" style="background-color: aquamarine; transform: translate(150px, 50px);" onclick="hideCircle(this)">3</div>
+        <div class="circle" style="background-color: blue; transform: translate(220px, 50px);" onclick="hideCircle(this)">4</div>
+        <div class="circle" style="background-color: yellow; transform: translate(130px, 100px);" onclick="hideCircle(this)">5</div>
+        <div class="circle" style="background-color: yellowgreen; transform: translate(50px, 270px);" onclick="hideCircle(this)">6</div>
+        <div class="circle" style="background-color: rgb(226, 43, 202); transform: translate(0, 300px);" onclick="hideCircle(this)">7</div>
+        <div class="circle" style="background-color: lightcoral; transform: translate(400, 50px);" onclick="hideCircle(this)">8</div>
+        <div class="circle" style="background-color: lightpink; transform: translate(700px, 50px);" onclick="hideCircle(this)">9</div>
+        <div class="circle" style="background-color: rgb(65, 100, 80); transform: translate(60px, 50px);" onclick="hideCircle(this)">10</div>
+        <div class="circle" style="background-color: rgb(204, 200, 145); transform: translate(400px, 300px);" onclick="hideCircle(this)">11</div>
+        <div class="circle" style="background-color: rgb(37, 89, 105); transform: translate(150px, 400px);" onclick="hideCircle(this)">12</div>
+        
+    </main>
+    <footer>
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Cart</title>
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        .message {
+            cursor: pointer;
+            display: inline-block;
+            font-size: 28px;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        #output {
+            border: 1px solid;
+            width: 300px;
+            height: 40px;
+        }
+    </style>
+    <script>
+        function sum() {
+            let inputA = parseInt(document.getElementById('numberA').value)
+            let inputB = parseInt(document.getElementById('numberB').value)
+            let res = inputA + inputB
+
+            alert(`Сумма ${inputA} и ${inputB} равна ${res}`)
+        }
+
+
+        function changeOutput(buttonNum, backColor, textColor, border) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Нажата кнопка ' + buttonNum
+            output.style.backgroundColor = backColor
+            output.style.color = textColor
+            output.style.border = border
+        }
+
+    </script>
+</head>
+
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная 5. Cart
+        <hr>
+        <script>
+            function calc() {
+                let inputA = parseInt(document.getElementById('apples').value ?? 0) 
+                let inputB = parseInt(document.getElementById('pears').value ?? 0) 
+                let inputC = parseInt(document.getElementById('potatos').value ?? 0) 
+                let inputD = parseInt(document.getElementById('bananas').value ?? 0) 
+                let res = inputA * 30 + inputB * 50 + inputC * 8 + inputD * 35
+
+                let total = document.getElementById('total')
+                total.textContent = `Total: ${res}`
+            }
+            function clear() {
+                console.log("sdfgdgf")
+                document.getElementById('apples').value = ""
+                document.getElementById('pears').value = ""
+                document.getElementById('potatos').value = ""
+                document.getElementById('bananas').value = ""
+
+                let total = document.getElementById('total')
+                total.textContent = `Total: 0`
+            }
+        </script>
+    </header>
+    <main>
+        <div>
+            <div>КОРЗИНА ТОВАРОВ</div>
+            <div>
+                <div>Яблоки 30р/шт</div>
+                <input type="number" id="apples" placeholder="Кол-во Яблок">
+                <div>Груши 50р/шт</div>
+                <input type="number" id="pears" placeholder="Кол-во Груш">
+                <div>Картофель 8р/шт</div>
+                <input type="number" id="potatos" placeholder="Кол-во Картошки">
+                <div>Бананы 35р/шт</div>
+                <input type="number" id="bananas" placeholder="Кол-во Бананов">
+                <button onclick="calc()">Рассчитать</button>
+                <button onclick="clear()">Очистить</button>
+                
+                <div id="total">Total: 0</div>
+
+            </div>
+        </div>
+
+
+
+
+    </main>
+    <footer ondblclick="showSecretFooterMessage()">
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>

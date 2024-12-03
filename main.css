@@ -57,3 +57,7 @@ div.menu:hover {
     
 }
 
+.hidden {
+    display: none;
+}
+

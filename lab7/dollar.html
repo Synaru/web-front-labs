@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Лаб 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <script>
+        function showExchange(element){
+            element.style.display = 'none'
+            const values = [
+            97.8335, 98.0726, 98.2236, 98.0562, 97.5499, 97.4402, 97.0226, 98.2236, 98.0726, 97.8335, 97.0226
+            ]
+            let table = document.getElementById("dollar-table")
+            let sum = 0
+            values.forEach(value => {
+                sum += value
+                let newRow = document.createElement('tr')
+                let newTd = document.createElement('td')
+                newTd.innerText = value
+
+                newRow.appendChild(newTd)
+                table.appendChild(newRow)
+            })
+
+            let detailsDiv = document.getElementById("details")
+            detailsDiv.innerHTML = `Average: ${(sum/values.length).toFixed(2)} руб`
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, ДОллар
+        <hr>
+    </header>
+    <main>
+        <div>
+            <button onclick="showExchange(this)">Показать курс $</button>
+            <table border="1" id="dollar-table"></table>
+            <div id="details"></div>
+        </div>
+
+
+    </main>
+    <footer>
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>

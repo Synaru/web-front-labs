@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Arithmetic</title>
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        .message {
+            cursor: pointer;
+            display: inline-block;
+            font-size: 28px;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        #output {
+            border: 1px solid;
+            width: 300px;
+            height: 40px;
+        }
+    </style>
+    <script>
+        function sum() {
+            let inputA = parseInt(document.getElementById('numberA').value)
+            let inputB = parseInt(document.getElementById('numberB').value)
+            let res = inputA + inputB
+            
+            alert(`Сумма ${inputA} и ${inputB} равна ${res}`)
+        }
+        function dif() {
+            let inputA = parseInt(document.getElementById('numberA').value)
+            let inputB = parseInt(document.getElementById('numberB').value)
+            let res = inputA - inputB
+            
+            alert(`Разница ${inputA} и ${inputB} равна ${res}`)
+        }
+        function mult() {
+            let inputA = parseInt(document.getElementById('numberA').value)
+            let inputB = parseInt(document.getElementById('numberB').value)
+            let res = inputA * inputB
+            
+            alert(`Результат умножение ${inputA} на ${inputB} равен ${res}`)
+        }
+        function div() {
+            let inputA = parseInt(document.getElementById('numberA').value)
+            let inputB = parseInt(document.getElementById('numberB').value)
+            let res = inputA / inputB
+            
+            alert(`Результат деления ${inputA} на ${inputB} равен ${res}`)
+        }
+
+        function showAuthor() {
+            let author = 'Автор страницы: \n Сынару Телесова';
+
+            alert(author)
+        }
+
+        function showSecretFooterMessage() {
+            let msg = 'УУУ, это секретный секрет, за нахождение +2 к интеллекту';
+
+            alert(msg)
+        }
+
+        function changeOutput(buttonNum, backColor, textColor, border) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Нажата кнопка ' + buttonNum
+            output.style.backgroundColor = backColor
+            output.style.color = textColor
+            output.style.border = border
+        }
+
+    </script>
+</head>
+
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная 5. Arithmetic
+        <hr>
+    </header>
+    <main>
+        <label for=""></label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
+        <label for=""></label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
+
+        <div class="message" onClick="sum()">Найти сумму</div>
+        <div class="message" onClick="dif()">Найти разницу</div>
+        <div class="message" onClick="mult()">Умножить</div>
+        <div class="message" onClick="div()">Поделить</div>
+
+        <div class="message" onClick="showAuthor()">Узнать кто автор страницы</div>
+
+        <div>
+            <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red', 'yellow', '2px solid blue')">
+            <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'lime', '2px dotted red')">
+            <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'white', 'red', '2px dotted pink')">
+            <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'blue', 'pink', '2px double yellow')">
+        </div>
+
+        <div id="output">
+
+        </div>
+
+    </main>
+    <footer ondblclick="showSecretFooterMessage()">
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>

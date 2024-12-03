@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Лаб 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <script>
+        function addBlock() {
+            let newDiv = document.createElement('div')
+            newDiv.style.backgroundColor = '#de4747'
+            newDiv.style.borderRadius = '5px'
+            newDiv.innerText = 'New Block'
+            newDiv.style.padding = '12px'
+            newDiv.style.margin = '3px'
+
+
+            document.querySelector('main').appendChild(newDiv)
+        }
+
+        function addBlockMany() {
+            const basewidth = 200
+            let main = document.querySelector('main')
+
+            for (let i = 0; i < 10; i++) {
+                let newDiv = document.createElement('div')
+                newDiv.style.backgroundColor = '#de4747'
+                newDiv.style.borderRadius = '5px'
+                newDiv.style.padding = '12px'
+                newDiv.style.margin = '3px'
+                let value = 2 * i ** 2
+                newDiv.innerText = `New Block №${i + 1} Выражение 2*${i}^2 = ${value}`
+                newDiv.style.width = `${basewidth + value}px`
+
+
+                main.appendChild(newDiv)
+            }
+        }
+        function add2050() {
+            let main = document.querySelector('main')
+
+            for (let i = 20; i <= 50; i+=2.5) {
+                let newDiv = document.createElement('div')
+                newDiv.style.backgroundColor = '#de4747'
+                newDiv.style.borderRadius = '5px'
+                newDiv.style.padding = '12px'
+                newDiv.style.margin = '3px'
+                
+                newDiv.innerText = `value ${i}`
+
+
+                main.appendChild(newDiv)
+            }
+        }
+        function add1080() {
+            let main = document.querySelector('main')
+
+            for (let i = 10; i >= -80; i-=3) {
+                let newDiv = document.createElement('div')
+                newDiv.style.backgroundColor = '#de4747'
+                newDiv.style.borderRadius = '1000px'
+                newDiv.style.padding = '12px'
+                newDiv.style.margin = '3px'
+                newDiv.style.height = '24px'
+                newDiv.style.width = '24px'
+                newDiv.style.display = 'inline-block'
+                
+                newDiv.innerText = `${i}`
+
+                main.appendChild(newDiv)
+            }
+        }
+        function opacityBlocks() {
+            let main = document.querySelector('main')
+
+            for (let i = 0; i < 10; i++) {
+                let newDiv = document.createElement('div')
+                newDiv.style.backgroundColor = '#de4747'
+                newDiv.style.borderRadius = '5px'
+                newDiv.style.padding = '12px'
+                newDiv.style.margin = '3px'
+                newDiv.style.opacity = `${10*(i+1)}%`
+                newDiv.innerText = `New Block №${i + 1}`
+
+                main.appendChild(newDiv)
+            }
+        }
+        function oddCircles() {
+            let main = document.querySelector('main')
+
+            for (let i = 15; i > 0; i--) {
+                let newDiv = document.createElement('div')
+                newDiv.style.borderRadius = '1000px'
+                newDiv.style.padding = '12px'
+                newDiv.style.margin = '3px'
+                newDiv.style.height = '24px'
+                newDiv.style.width = '24px'
+                newDiv.innerText = `${i}`
+
+                if(i % 2 !== 0){
+                    newDiv.style.backgroundColor = '#de4747'
+                } else {
+                    newDiv.style.backgroundColor = '#47de60'
+                }
+
+                main.appendChild(newDiv)
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Добавление блока
+        <hr>
+    </header>
+    <main>
+        <button onclick="addBlock()">Добавить блок</button>
+        <button onclick="addBlockMany()">Добавить 10 блоков</button>
+        <button onclick="add2050()">20 => 50</button>
+        <button onclick="add1080()">10 => -80</button>
+        <button onclick="opacityBlocks()">Opacity</button>
+
+        <div>
+            Кол-во кругов: <input type="number">
+            <button onclick="oddCircles()">Odd circels</button>
+        </div>
+
+
+
+    </main>
+    <footer>
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>

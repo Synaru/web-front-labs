@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Random</title>
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .color-block-base {
+            width: 400px;
+            height: 200px;
+            text-align: center;
+            padding-top: 80px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+    </style>
+    <script>
+        let currentColor = "red"
+        function switchColor(element) {
+            let blockDiv = document.getElementById("color-block")
+            let blockText = document.getElementById("color-text")
+
+            switch (currentColor) {
+                case "red":
+                    currentColor = "blue"
+                    blockText.innerText = "Цвет: Синий"
+                    break;
+                case "blue":
+                    currentColor = "green"
+                    blockText.innerText = "Цвет: Зеленый"
+
+                    break;
+                case "green":
+                    currentColor = "pink"
+                    blockText.innerText = "Цвет: Розовый"
+
+                    break;
+                case "pink":
+                    currentColor = "yellow"
+                    blockText.innerText = "Цвет: Желтый"
+
+                    break;
+                case "yellow":
+                    currentColor = "red"
+                    blockText.innerText = "Цвет: Красный"
+
+                    break;               
+            }
+
+            blockDiv.style.backgroundColor = currentColor;
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная 6. Color
+        <hr>
+    </header>
+    <main>
+        <div style="background-color: red;" id="color-block" class="color-block-base" ondblclick="switchColor(this)">
+            <div id="color-text">Цвет: Красный</div>
+            <div id="hint">Сделайте двойной щелчок,<br>чтобы сменить</div>
+        </div>
+
+    </main>
+    <footer>
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>

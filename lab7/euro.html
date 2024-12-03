@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Лаб 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        .price-green {
+            color: green;
+        }
+
+        .price-red {
+            color: red;
+        }
+
+        .rate-card {
+            padding: 16px;
+            background-color: whitesmoke;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            width: fit-content;
+            border-radius: 6px;
+            margin: 12px;
+        }
+
+        .rate-string {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .rate-string.previous {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgrey;
+        }
+    </style>
+    <script>
+
+        function formatDate(dateObj) {
+            const day = String(dateObj.getDate()).padStart(2, '0');
+            const month = String(dateObj.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+            const year = dateObj.getFullYear();
+
+            return `${day}.${month}.${year}`;
+        }
+
+
+        function getEuroRate() {
+            let url = `https://www.cbr-xml-daily.ru/daily_json.js`
+            let currentDate = ''
+            let currentValue = 0
+            let prevDate = ''
+            let prevValue = 0
+            let res = fetch(url)
+                .then(function (response) {
+                    return response.json()
+
+                }).then(function (json) {
+                    console.log("CURR", json)
+                    currentValue = json.Valute.EUR.Value
+                    currentDate = formatDate(new Date(json.Date))
+                        fetch(`https:${json.PreviousURL}`)
+                        .then(function (response) {
+                            return response.json()
+                        }).then(function (json) {
+                            console.log("PREV", json)
+                            prevValue = json.Valute.EUR.Value
+                            prevDate = formatDate(new Date(json.Date))
+
+                            let rateDiv = document.getElementById('currentRate')
+                            let diff = currentValue - prevValue
+                            rateDiv.innerHTML = `${currentDate} EURO ${currentValue} <span class="${diff > 0 ? 'price-green' : 'price-red'}">${diff.toFixed(2)}</span>`
+
+                            let prevRateDiv = document.getElementById('prevRate')
+                            prevRateDiv.innerHTML = `${prevDate} EURO ${prevValue}`
+
+                            document.getElementById('rate-card')?.classList.remove('hidden')
+
+                        })
+                })
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Евро
+        <hr>
+    </header>
+    <main>
+        <div>
+            <a href="https://www.cbr-xml-daily.ru/">Источник данных</a>
+            <button onclick="getEuroRate(this)">Показать курс евро</button>
+            <div id="rate-card" class="rate-card hidden">
+                <div id="currentRate" class="rate-string">
+
+                </div>
+                <div id="prevRate" class="rate-string previous">
+
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <footer>
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>

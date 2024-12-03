@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Filter</title>
+    <link rel="stylesheet" href="../main.css">
+    <style>
+
+    </style>
+    <script>
+        function applyFilter() {
+            let colorSelector = document.getElementById("wear-color")
+            let wearSelector = document.getElementById("wear-type")
+            let wearImage = document.getElementById("wear-pic")
+            wearImage.src = `${colorSelector.value}-${wearSelector.value}.webp`
+        }
+
+    </script>
+</head>
+
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная 6. Color
+        <hr>
+    </header>
+    <main>
+        <button onclick="applyFilter()">Apply filter</button><br>
+        <select id="wear-color">
+            <option value="red">Красный</option>
+            <option value="green">Зеленый</option>
+            <option value="blue">Синий</option>
+        </select><br>
+        <select id="wear-type">
+            <option value="shirt">Футболка</option>
+            <option value="sweater">Свитер</option>
+            <option value="skirt">Юбка</option>
+        </select><br>
+        <img id="wear-pic">
+
+    </main>
+    <footer>
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>

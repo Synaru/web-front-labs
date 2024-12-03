@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Лаб 8</title>
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        .price-green {
+            color: green;
+        }
+
+        .price-red {
+            color: red;
+        }
+
+        .rate-card {
+            padding: 16px;
+            background-color: whitesmoke;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            width: fit-content;
+            border-radius: 6px;
+            margin: 12px;
+        }
+
+        .rate-string {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .rate-string.previous {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgrey;
+        }
+
+        #time-display {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+        }
+        #analagus-clock {
+            height: 320px;
+            width: 320px;
+            /* padding-top: 160px; */
+            background-color: whitesmoke;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10000px;
+        }
+
+        #clock-stick {
+            width: 300px;
+            height: 5px;
+            position: relative;
+            top: 160px;      
+            transition: 0.2s;   
+            transform: rotate(-90deg);   
+        }
+        #clock-stick-vfx {
+            background-color: black;
+            width: 50%;
+            height: 100%;
+            margin-left: auto;
+        }
+    </style>
+    <script src="lab8.js">      
+    </script>
+</head>
+
+<body onload="showTime()">
+    <header>
+        НГТУ, ФБ, Дата 
+        <hr>
+    </header>
+    <main>
+        <div id="time-display"></div>
+        <div>
+
+            <button onclick="clearInputs()">Сброс</button><br>
+            <button onclick="showDate()">Показать дату</button>
+            <button onclick="showDateSeparate()">Показать дату c неделей</button><br>
+            <input type="number" id="day-input"><input type="number" id="month-input"><input type="number"
+                id="year-input">
+            <button onclick="solveWeekDay()">Определить день недели</button><br>
+            Дата рождения: <input id="birth-day-input" type="date"><button onclick="countDaysLived()">Рассчитать дни с
+                рождения</button><br>
+
+            <div id="date-card" class="rate-card hidden rate-string">
+
+
+            </div>
+            
+        </div>
+        <div id="analagus-clock" onload="moveClock()">
+            <div id="clock-stick">
+                <div id="clock-stick-vfx"></div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>

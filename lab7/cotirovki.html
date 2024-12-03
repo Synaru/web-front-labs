@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Лаб 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <script>
+        function showExchange(element){
+            element.style.display = 'none'
+            const values = [
+            {date: '08.11.2024', price: 308.40},
+            {date: '07.11.2024', price: 297.40},
+            {date: '06.11.2024', price: 295.80},
+            {date: '05.11.2024', price: 292.00},
+            {date: '02.11.2024', price: 287.40},
+            {date: '01.11.2024', price: 291.40},
+            {date: '31.10.2024', price: 288.20},
+            {date: '30.10.2024', price: 303.60},
+            {date: '29.10.2024', price: 301.00},
+            {date: '28.10.2024', price: 299.60}
+
+            ]
+            let table = document.getElementById("stocks-table")
+            
+            let sum = 0
+            for (let i = 0; i < values.length; i++) {
+                let value = values[i]
+                sum += value.price
+                let newRow = document.createElement('tr')
+                //date
+                let dateTD = document.createElement('td')
+                dateTD.innerText = value.date
+                newRow.appendChild(dateTD)
+
+                //price
+                let priceTD = document.createElement('td')
+                priceTD.innerText = value.price
+                newRow.appendChild(priceTD)
+
+                //diff
+                let diffTD = document.createElement('td')
+                diffTD.innerText = (value.price - values[i-1]?.price ?? value.price).toFixed(2)
+                newRow.appendChild(diffTD)
+
+                
+                table.appendChild(newRow)
+            }
+
+            let detailsDiv = document.getElementById("details")
+            detailsDiv.innerText = `
+                Средняя цена: ${(sum/values.length).toFixed(2)} \n
+                Минимальная цена: ${Math.min(...values.map(xx=> xx.price))} \n
+                Максимальная цена: ${Math.max(...values.map(xx=> xx.price))}
+            `
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Котировки
+        <hr>
+    </header>
+    <main>
+        <div>
+            <button onclick="showExchange(this)">Курс акций VK (VKCO)</button>
+            <table border="1" id="stocks-table"></table>
+            <div id="details"></div>
+        </div>
+
+
+    </main>
+    <footer>
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>

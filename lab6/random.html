@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Random</title>
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        let rightGuess;
+        let tryCount = 0;
+        function startGame() {
+            rightGuess = Math.floor(Math.random() * 100) + 1;
+            let guessDiv = document.getElementById("guess");
+            guessDiv.classList.remove("hidden")
+            let resultDiv = document.getElementById("result");
+            resultDiv.classList.add("hidden")
+        }
+
+        function validateInput() {
+
+        }
+
+        function guess() {
+            tryCount++;
+            let counter = document.getElementById("try-counter");
+            counter.innerText = `Tries: ${tryCount}`
+            let guessvalue = Number(document.getElementById("guessinput").value);
+            let resultDiv = document.getElementById("result");
+            let resultTextDiv = document.getElementById("result-text");
+            let errorDiv = document.getElementById("input-error");
+
+            if (guessvalue < 1 || guessvalue > 100 || guessvalue === NaN) {
+                errorDiv.innerText = "Bad number, guess shoud be number like: 0 > n < 100"
+                return
+            }
+
+            if (guessvalue === rightGuess) {
+                resultTextDiv.textContent = `Congratulations!!, ${guessvalue} was the right number`
+            } else {
+                resultTextDiv.textContent = `Ha ha!!, ${guessvalue} was not the right number`
+            }
+
+            resultDiv.classList.remove("hidden")
+            errorDiv.innerText = ''
+        }
+
+        function tryAgain() {
+            let resultDiv = document.getElementById("result");
+            resultDiv.classList.add("hidden")
+            rightGuess = Math.floor(Math.random() * 100) + 1;
+        }
+        let gameRulesHidden = true
+        function showGameRules(element) {
+            let resultDiv = document.getElementById("game-rules");
+            resultDiv.classList.toggle("hidden")
+            gameRulesHidden = !gameRulesHidden
+
+            if(gameRulesHidden){
+                element.innerText = "Show game rules"
+            } else {
+                element.innerText = "Hide game rules"
+            }
+            
+        }
+    </script>
+</head>
+
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная 6. Random
+        <hr>
+    </header>
+    <main>
+        <div class="game">
+            <button onclick="showGameRules(this)">Show game rules</button>
+            <div id="game-rules" class="hidden">
+                <ol>
+                    <li>Нажать начать игру</li>
+                    <li>Ввести значение</li>
+                    <li>Значение больше 0</li>
+                    <li>Значение не больше 100</li>
+                    <li>Нажать "Guess"</li>
+                    <li>Если не угадали, нажать "Try again"</li>
+                  </ol>
+                  
+            </div>
+        </div>
+
+        <div class="game">
+            <button onclick="startGame()">Start game</button>
+        </div>
+
+        <div class="game hidden" id="guess">
+            <div>Guess number!</div>
+            <input type="number" name="" id="guessinput" min="1" max="100">
+            <div style="color: red;" id="input-error"></div>
+            <button onclick="guess()">Guess</button>
+        </div>
+
+        <div class="game hidden" id="result">
+            <div class="game" id="result-text">
+
+            </div>
+            <button onclick="tryAgain()">Try again</button>
+        </div>
+        <div class="game" id="try-counter">
+            Tries: 0
+        </div>
+
+    </main>
+    <footer ondblclick="showSecretFooterMessage()">
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>

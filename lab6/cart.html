@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Random</title>
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        
+        const items = [
+            { name: "bread", price: 30 },
+            { name: "milk", price: 50 },
+            { name: "butter", price: 130 },
+            { name: "apple", price: 16 },
+            { name: "pear", price: 25 },
+            { name: "sugar", price: 300 },
+            { name: "vodka", price: 450 }
+        ];
+
+        function checkOut() {
+            let total = 0;
+            items.forEach(item => {
+                let count = Number(document.getElementById(item.name).value)
+
+                if(count !== 0 && count !== NaN){ 
+                    console.log(count)
+
+                    total += item.price * count;
+                }
+            });
+
+            let totalDiv = document.getElementById("total")
+            totalDiv.innerText = `Total: ${total} p`
+
+            let balance = Number(document.getElementById("balance").value)
+            let errorMessage = document.getElementById("error-message")
+            errorMessage.innerText = ""
+            if(total === 0){
+                errorMessage.innerText = "Необходимо выбрать минимум 1 товар"
+                return
+            }
+            if(balance < total){
+                errorMessage.innerText = "Не достаточно средств"
+                return
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная 6. Color
+        <hr>
+    </header>
+    <main>
+        <div>Баланс: <input id="balance" type="number" min="0" max="99999999"></div>
+        <table>
+            <tr>
+                <th></th>
+                <th>Название</th>
+                <th>Цена</th>
+                <th>Кол-во</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Хлеб</td>
+                <td>30 р</td>
+                <td><input id="bread" type="number" min="0" max="99"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Молоко</td>
+                <td>50 р</td>
+                <td><input id="milk" type="number" min="0" max="99"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Масло</td>
+                <td>130 р</td>
+                <td><input id="butter" type="number" min="0" max="99"></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Яблоко</td>
+                <td>16 р</td>
+                <td><input id="apple" type="number" min="0" max="99"></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Груша</td>
+                <td>25 р</td>
+                <td><input id="pear" type="number" min="0" max="99"></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Сахар</td>
+                <td>300 р</td>
+                <td><input id="sugar" type="number" min="0" max="99"></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Водка</td>
+                <td>450 р</td>
+                <td><input id="vodka" type="number" min="0" max="99"></td>
+            </tr>
+        </table>
+        <button onclick="checkOut()">Рассчитать</button>
+        <div id="total">Total: 0р</div>
+        <div style="color: red;" id="error-message"></div>
+
+    </main>
+    <footer>
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>

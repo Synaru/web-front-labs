@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Лаб 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        .price-green {
+            color: green;
+        }
+
+        .price-red {
+            color: red;
+        }
+
+        .rate-card {
+            padding: 16px;
+            background-color: whitesmoke;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            width: fit-content;
+            border-radius: 6px;
+            margin: 12px;
+        }
+
+        .rate-string {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .rate-string.previous {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkgrey;
+        }
+    </style>
+    <script>
+
+        function formatDate(dateObj) {
+            const day = String(dateObj.getDate()).padStart(2, '0');
+            const month = String(dateObj.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+            const year = dateObj.getFullYear();
+
+            return `${day}.${month}.${year}`;
+        }
+
+
+        function getWeather() {
+            let url = `https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok`
+           
+            let res = fetch(url)
+                .then(function (response) {
+                    return response.json()
+
+                }).then(function (json) {
+                    console.log("CURR", json)
+                    
+                    let div = document.getElementById('currentRate')
+                    div.innerText = `
+                    Температура Новосибирск: \n
+                    08:00 ${json.hourly.temperature_2m[7]} °C\n
+                    12:00 ${json.hourly.temperature_2m[11]} °C\n
+                    20:00 ${json.hourly.temperature_2m[19]} °C\n
+                    `
+
+                    document.getElementById('rate-card').classList.remove('hidden')
+                })
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Евро
+        <hr>
+    </header>
+    <main>
+        <div>
+            <a href="https://api.open-meteo.com/">Источник данных</a>
+            <button onclick="getWeather()">Показать погоду</button>
+            <div id="rate-card" class="rate-card hidden">
+                <div id="currentRate" class="rate-string">
+
+                </div>
+                
+            </div>
+        </div>
+
+
+    </main>
+    <footer>
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>

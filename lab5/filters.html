@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сынару Телесова. Cart</title>
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        
+    </style>
+    <script>        
+        function blurChange(element){
+            let img = document.getElementById("blurimage")
+            img.style.filter = `blur(${element.value}px)`
+        }
+        function brightnessChange(element){
+            let img = document.getElementById("blurimage")
+            img.style.filter = `brightness(${element.value}%)`
+        }
+        function contrastChange(element){
+            let img = document.getElementById("blurimage")
+            img.style.filter = `contrast(${element.value}%)`
+        }
+        function garyscaleChange(element){
+            let img = document.getElementById("blurimage")
+            img.style.filter = `grayscale(${element.value}%)`
+        }
+        function hueRotateChange(element){
+            let img = document.getElementById("blurimage")
+            img.style.filter = `hue-rotate(${element.value}deg)`
+        }
+        function invertChange(element){
+            let img = document.getElementById("blurimage")
+            img.style.filter = `invert(${element.value}%)`
+        }
+        function saturateChange(element){
+            let img = document.getElementById("blurimage")
+            img.style.filter = `saturate(${element.value}%)`
+        }
+        function sepiaChange(element){
+            let img = document.getElementById("blurimage")
+            img.style.filter = `sepia(${element.value}%)`
+        }
+
+    </script>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 5. Cart
+        <hr>
+        <script>
+            
+        </script>
+    </header>
+    <main>
+        Blur: <input type="range" min="0" max="20" value="0" onchange="blurChange(this)"><br>
+        Brightness: <input type="range" min="0" max="500" value="0" onchange="brightnessChange(this)"><br>
+        Contrast: <input type="range" min="0" max="500" value="0" onchange="contrastChange(this)"><br>
+        GrayScale: <input type="range" min="0" max="100" value="0" onchange="garyscaleChange(this)"><br>
+        HueRotate: <input type="range" min="0" max="360" value="0" onchange="hueRotateChange(this)"><br>
+        Invert: <input type="range" min="0" max="100" value="0" onchange="invertChange(this)"><br>
+        Saturate: <input type="range" min="0" max="500" value="0" onchange="saturateChange(this)"><br>
+        Sepia: <input type="range" min="0" max="100" value="0" onchange="sepiaChange(this)"><br>
+
+        <img id="blurimage" src="jamalungma.jpg" alt="">
+    </main>
+    <footer>
+        <hr>
+        &copy;Сынару Телесова. ФБИ-23, 3 курс, 2024
+    </footer>
+
+</body>
+
+</html>
